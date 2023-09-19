@@ -2,9 +2,9 @@ package me.josscoder.jbridge.waterdogpe;
 
 import dev.waterdog.waterdogpe.command.CommandMap;
 import dev.waterdog.waterdogpe.event.EventManager;
-import dev.waterdog.waterdogpe.event.defaults.PreTransferEvent;
 import dev.waterdog.waterdogpe.event.defaults.ProxyPingEvent;
 import dev.waterdog.waterdogpe.event.defaults.ProxyQueryEvent;
+import dev.waterdog.waterdogpe.event.defaults.ServerTransferEvent;
 import dev.waterdog.waterdogpe.logger.Color;
 import dev.waterdog.waterdogpe.network.serverinfo.ServerInfo;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
@@ -80,7 +80,7 @@ public class JBridgeWaterdogPE extends Plugin {
         EventManager manager = getProxy().getEventManager();
         manager.subscribe(ProxyPingEvent.class, this::onPing);
         manager.subscribe(ProxyQueryEvent.class, this::onQuery);
-        manager.subscribe(PreTransferEvent.class, this::onTransfer);
+        manager.subscribe(ServerTransferEvent.class, this::onTransfer);
     }
 
     private void onPing(ProxyPingEvent event) {
@@ -91,7 +91,7 @@ public class JBridgeWaterdogPE extends Plugin {
         event.setMaximumPlayerCount(JBridgeCore.getInstance().getServiceHandler().getMaxPlayers());
     }
 
-    private void onTransfer(PreTransferEvent event) {
+    private void onTransfer(ServerTransferEvent event) {
         ProxiedPlayer player = event.getPlayer();
         ServerInfo targetServer = event.getTargetServer();
 

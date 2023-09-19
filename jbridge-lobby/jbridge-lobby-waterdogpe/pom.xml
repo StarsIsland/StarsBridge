@@ -48,7 +48,7 @@
     <repositories>
         <repository>
             <id>waterdog-repo</id>
-            <url>https://repo.waterdog.dev/artifactory/main</url>
+            <url>https://repo.waterdog.dev/artifactory/release</url>
         </repository>
     </repositories>
 
@@ -62,8 +62,7 @@
         <dependency>
             <groupId>dev.waterdog.waterdogpe</groupId>
             <artifactId>waterdog</artifactId>
-            <version>1.2.3</version>
-            <scope>provided</scope>
+            <version>2.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
